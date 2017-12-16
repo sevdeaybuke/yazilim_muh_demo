@@ -1,0 +1,40 @@
+<head>
+        <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="../css/business-casual.css" rel="stylesheet"> 
+</head>
+<body>
+  <center>
+  <div style="background-color:rgba(255, 255, 255, 0.9);width:40%;margin-top:10%;border-radius:20px;">
+    <center>
+          <h2>Üye Girişi</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :Email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :Sifre %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :Hatirla %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Giriş" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</center>
+
+  </div>
+  </center>
+</body>
